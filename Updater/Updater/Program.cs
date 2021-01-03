@@ -37,7 +37,7 @@ namespace Updater
                 var details = TournamentDetailsLoader.GetTournamentDetails(tournament.CsvFile, $"{tournament.Uri.ToString()}swiss", $"{tournament.Uri.ToString()}finals");
                 string contents = JsonConvert.SerializeObject(new CacheItem()
                 {
-                    Tournament = tournament,
+                    Tournament = new Tournament() { Name = tournament.Name, Date = tournament.Date, Uri = tournament.Uri },
                     Decks = details.Decks,
                     Bracket = details.Bracket,
                     Standings = details.Standings
