@@ -27,7 +27,7 @@ namespace Updater
                 string targetFolder = Path.Combine(cacheFolder, tournament.Date.Year.ToString(), tournament.Date.Month.ToString("D2").ToString(), tournament.Date.Day.ToString("D2").ToString());
                 if (!Directory.Exists(targetFolder)) Directory.CreateDirectory(targetFolder);
 
-                string targetFile = Path.Combine(targetFolder, $"{Path.GetFileNameWithoutExtension(tournament.CsvFile).ToLowerInvariant()}.json");
+                string targetFile = Path.Combine(targetFolder, $"{Path.GetFileNameWithoutExtension(tournament.CsvFile).Replace("_", "-").ToLowerInvariant()}-{tournament.Date.ToString("yyyy-MM-dd")}.json");
                 if (File.Exists(targetFile))
                 {
                     Console.WriteLine($"Already downloaded, skipping");
