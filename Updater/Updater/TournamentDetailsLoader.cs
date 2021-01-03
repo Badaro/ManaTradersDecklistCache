@@ -100,7 +100,7 @@ namespace Updater
                 var rows = standingNode.SelectNodes("td");
 
                 int rank = int.Parse(rows[0].InnerText);
-                string player = rows[1].InnerText;
+                string player = rows[1].InnerText.Trim();
                 int points = int.Parse(rows[2].InnerText);
                 double omwp = double.Parse(rows[5].InnerText.Trim('%'), CultureInfo.InvariantCulture) / 100d;
                 double gwp = double.Parse(rows[6].InnerText.Trim('%'), CultureInfo.InvariantCulture) / 100d;

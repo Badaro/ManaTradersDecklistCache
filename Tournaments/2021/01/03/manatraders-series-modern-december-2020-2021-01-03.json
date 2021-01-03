@@ -7600,7 +7600,11 @@
       "AnchorUri": null,
       "Mainboard": [
         {
-          "Count": 18,
+          "Count": 4,
+          "CardName": "Path to exile"
+        },
+        {
+          "Count": 19,
           "CardName": "Plains"
         },
         {
@@ -17793,7 +17797,7 @@
     },
     {
       "Date": null,
-      "Player": "Broccoliasaurus ",
+      "Player": "Broccoliasaurus",
       "Result": "132th",
       "AnchorUri": null,
       "Mainboard": [
@@ -43446,7 +43450,7 @@
     },
     {
       "Rank": 132,
-      "Player": "Broccoliasaurus ",
+      "Player": "Broccoliasaurus",
       "Points": 12,
       "OMWP": 0.546,
       "GWP": 0.5,
