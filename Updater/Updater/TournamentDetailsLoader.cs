@@ -122,19 +122,54 @@ namespace Updater
 
         private static Bracket ParseBracket(string bracketUrl)
         {
-            return null;
+            string pageContent = new WebClient().DownloadString(bracketUrl);
 
-            //var bracketRoot = doc.DocumentNode.SelectSingleNode("//div[@class='wrap-bracket-slider']");
-            //if (bracketRoot == null) return null;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(pageContent);
 
-            //var bracketNodes = bracketRoot.SelectNodes("div/div[@class='finalists']");
+            var bracketRoot = doc.DocumentNode.SelectSingleNode("//div[@class='tournament-brackets']");
+            if (bracketRoot == null) return null;
 
-            //return new Bracket()
-            //{
-            //    Quarterfinals = ParseBracketItem(bracketNodes.Skip(0).First()),
-            //    Semifinals = ParseBracketItem(bracketNodes.Skip(1).First()),
-            //    Finals = ParseBracketItem(bracketNodes.Skip(2).First()).First()
-            //};
+            List<BracketItem> brackets = new List<BracketItem>();
+
+            var bracketNodes = bracketRoot.SelectNodes("ul/li");
+            foreach (var bracketNode in bracketNodes)
+            {
+                List<string> players = new List<string>();
+                List<int> wins = new List<int>();
+
+                foreach (var playerNode in bracketNode.SelectNodes("div"))
+                {
+                    players.Add(playerNode.SelectNodes("div").First().InnerText);
+                    wins.Add(Convert.ToInt32(playerNode.SelectNodes("div").Last().InnerText));
+                }
+
+                if (wins[0] > wins[1])
+                {
+                    brackets.Add(new BracketItem()
+                    {
+                        WinningPlayer = players[0],
+                        LosingPlayer = players[1],
+                        Result = wins[0] + "-" + wins[1]
+                    });
+                }
+                else
+                {
+                    brackets.Add(new BracketItem()
+                    {
+                        WinningPlayer = players[1],
+                        LosingPlayer = players[0],
+                        Result = wins[1] + "-" + wins[0]
+                    });
+                }
+            }
+
+            return new Bracket()
+            {
+                Quarterfinals = brackets.Take(4).ToArray(),
+                Semifinals = brackets.Skip(4).Take(2).ToArray(),
+                Finals = brackets.Skip(6).First()
+            };
         }
     }
 }

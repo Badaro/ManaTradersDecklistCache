@@ -42398,7 +42398,47 @@
       ]
     }
   ],
-  "Bracket": null,
+  "Bracket": {
+    "Quarterfinals": [
+      {
+        "WinningPlayer": "Phill_Hellmuth",
+        "LosingPlayer": "Harry13",
+        "Result": "2-0"
+      },
+      {
+        "WinningPlayer": "Gerardo94",
+        "LosingPlayer": "coert",
+        "Result": "2-1"
+      },
+      {
+        "WinningPlayer": "GobFTW",
+        "LosingPlayer": "HannoLee",
+        "Result": "2-0"
+      },
+      {
+        "WinningPlayer": "_IlNano_",
+        "LosingPlayer": "VilaCelta",
+        "Result": "2-0"
+      }
+    ],
+    "Semifinals": [
+      {
+        "WinningPlayer": "Gerardo94",
+        "LosingPlayer": "Phill_Hellmuth",
+        "Result": "2-0"
+      },
+      {
+        "WinningPlayer": "_IlNano_",
+        "LosingPlayer": "GobFTW",
+        "Result": "2-0"
+      }
+    ],
+    "Finals": {
+      "WinningPlayer": "Gerardo94",
+      "LosingPlayer": "GobFTW",
+      "Result": "2-0"
+    }
+  },
   "Standings": [
     {
       "Rank": 1,
