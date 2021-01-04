@@ -16,13 +16,13 @@ namespace Updater
             {
                 dynamic json = JsonConvert.DeserializeObject(File.ReadAllText(tournamentFile));
                 DateTime date = json.Date;
-                string csv = json.Csv;
                 tournaments.Add(new ManaTradersTournament()
                 {
                     Name = json.Name,
                     Date = date.ToUniversalTime(),
                     Uri = json.Url,
-                    CsvFile = new FileInfo(Path.Combine(rawDataFolder, csv)).FullName
+                    Csv = json.Csv,
+                    File = Path.GetFileName(tournamentFile)
                 });
             }
             return tournaments.ToArray();

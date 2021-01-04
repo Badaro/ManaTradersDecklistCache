@@ -13,10 +13,10 @@ namespace Updater
 {
     public static class TournamentDetailsLoader
     {
-        public static TournamentDetails GetTournamentDetails(string csvFile, string standingsUrl, string bracketUrl)
+        public static TournamentDetails GetTournamentDetails(string csvUrl, string standingsUrl, string bracketUrl)
         {
             var standings = ParseStandings(standingsUrl);
-            var decks = ParseDecks(csvFile, standings);
+            var decks = ParseDecks(csvUrl, standings);
             var bracket = ParseBracket(bracketUrl);
 
             return new TournamentDetails()
@@ -27,37 +27,50 @@ namespace Updater
             };
         }
 
-        private static Deck[] ParseDecks(string csvFile, Standing[] standings)
+        private static Deck[] ParseDecks(string csvUrl, Standing[] standings)
         {
             List<Deck> result = new List<Deck>();
 
+            string csvData = new WebClient().DownloadString(csvUrl);
+
             ManaTradersCsvRecord[] records;
-            using (var reader = new StreamReader(csvFile))
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(csvData)))
             {
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                using (var reader = new StreamReader(stream, Encoding.UTF8))
                 {
-                    csv.Configuration.HasHeaderRecord = true;
-                    records = csv.GetRecords<ManaTradersCsvRecord>().ToArray();
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        csv.Configuration.HasHeaderRecord = true;
+                        records = csv.GetRecords<ManaTradersCsvRecord>().ToArray();
+                    }
                 }
             }
 
             foreach (var player in records.Select(r => r.Player).Distinct())
             {
-                ManaTradersCsvRecord[] playerCards = records.Where(r => r.Player == player).ToArray();
+                ManaTradersCsvRecord[] playerCards = records.Where(r => r.Player.Trim() == player.Trim()).ToArray();
 
                 string playerName = player;
                 string playerResult = null;
                 if (standings != null)
                 {
-                    var playerStanding = standings.First(s => s.Player.ToLower() == player.ToLower());
+                    var playerStanding = standings.FirstOrDefault(s => s.Player.ToLower().Trim() == player.ToLower().Trim());
 
-                    var rankSuffix = "th";
-                    if (playerStanding.Rank == 1) rankSuffix = "st";
-                    if (playerStanding.Rank == 2) rankSuffix = "nd";
-                    if (playerStanding.Rank == 3) rankSuffix = "rd";
+                    if (playerStanding != null)
+                    {
+                        var rankSuffix = "th";
+                        if (playerStanding.Rank == 1) rankSuffix = "st";
+                        if (playerStanding.Rank == 2) rankSuffix = "nd";
+                        if (playerStanding.Rank == 3) rankSuffix = "rd";
 
-                    playerResult = playerStanding.Rank.ToString() + rankSuffix;
-                    playerName = playerStanding.Player; // Name from standings has the correct casing, name from CSV is forced lowercase
+                        playerResult = playerStanding.Rank.ToString() + rankSuffix;
+                        playerName = playerStanding.Player.Trim(); // Name from standings has the correct casing, name from CSV is forced lowercase
+                    }
+                    else
+                    {
+                        playerResult = "-";
+                        playerName = player.Trim();
+                    }
                 }
 
                 result.Add(new Deck()
@@ -71,7 +84,7 @@ namespace Updater
                 });
             }
 
-            return result.OrderBy(r => Int32.Parse(r.Result.Substring(0, r.Result.Length - 2))).ToArray();
+            return result.OrderBy(r => r.Result != "-" ? Int32.Parse(r.Result.Substring(0, r.Result.Length - 2)) : Int32.MaxValue).ToArray();
         }
 
         private static string FixCardName(string cardName)
