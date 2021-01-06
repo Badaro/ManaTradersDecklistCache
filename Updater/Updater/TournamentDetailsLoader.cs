@@ -161,8 +161,8 @@ namespace Updater
                 {
                     brackets.Add(new BracketItem()
                     {
-                        WinningPlayer = players[0],
-                        LosingPlayer = players[1],
+                        Player1 = players[0],
+                        Player2 = players[1],
                         Result = wins[0] + "-" + wins[1]
                     });
                 }
@@ -170,8 +170,8 @@ namespace Updater
                 {
                     brackets.Add(new BracketItem()
                     {
-                        WinningPlayer = players[1],
-                        LosingPlayer = players[0],
+                        Player1 = players[1],
+                        Player2 = players[0],
                         Result = wins[1] + "-" + wins[0]
                     });
                 }
