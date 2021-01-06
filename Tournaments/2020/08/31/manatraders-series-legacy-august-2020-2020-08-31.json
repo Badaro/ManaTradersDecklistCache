@@ -19749,41 +19749,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "learntolove6",
-        "LosingPlayer": "stefanogs",
+        "Player1": "learntolove6",
+        "Player2": "stefanogs",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "Lampalot",
-        "LosingPlayer": "Tikidan",
+        "Player1": "Lampalot",
+        "Player2": "Tikidan",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "_Ingles_",
-        "LosingPlayer": "1yo2yo",
+        "Player1": "_Ingles_",
+        "Player2": "1yo2yo",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "mlgb92",
-        "LosingPlayer": "stormguyisme",
+        "Player1": "mlgb92",
+        "Player2": "stormguyisme",
         "Result": "2-1"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "learntolove6",
-        "LosingPlayer": "Lampalot",
+        "Player1": "learntolove6",
+        "Player2": "Lampalot",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "mlgb92",
-        "LosingPlayer": "_Ingles_",
+        "Player1": "mlgb92",
+        "Player2": "_Ingles_",
         "Result": "2-0"
       }
     ],
     "Finals": {
-      "WinningPlayer": "learntolove6",
-      "LosingPlayer": "mlgb92",
+      "Player1": "learntolove6",
+      "Player2": "mlgb92",
       "Result": "2-0"
     }
   },

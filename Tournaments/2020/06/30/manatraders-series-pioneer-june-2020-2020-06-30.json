@@ -24991,41 +24991,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "sol0mongrundy",
-        "LosingPlayer": "e_hawk77",
+        "Player1": "sol0mongrundy",
+        "Player2": "e_hawk77",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "twinlesstwin",
-        "LosingPlayer": "alicoco",
+        "Player1": "twinlesstwin",
+        "Player2": "alicoco",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "albert62",
-        "LosingPlayer": "Joao_Andrade",
+        "Player1": "albert62",
+        "Player2": "Joao_Andrade",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "Egadd2894",
-        "LosingPlayer": "TerminalJustice",
+        "Player1": "Egadd2894",
+        "Player2": "TerminalJustice",
         "Result": "2-0"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "twinlesstwin",
-        "LosingPlayer": "sol0mongrundy",
+        "Player1": "twinlesstwin",
+        "Player2": "sol0mongrundy",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "albert62",
-        "LosingPlayer": "Egadd2894",
+        "Player1": "albert62",
+        "Player2": "Egadd2894",
         "Result": "2-0"
       }
     ],
     "Finals": {
-      "WinningPlayer": "albert62",
-      "LosingPlayer": "twinlesstwin",
+      "Player1": "albert62",
+      "Player2": "twinlesstwin",
       "Result": "2-1"
     }
   },

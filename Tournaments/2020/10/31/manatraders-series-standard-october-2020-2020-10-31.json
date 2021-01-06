@@ -9081,41 +9081,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "nathansteuer",
-        "LosingPlayer": "_IlNano_",
+        "Player1": "nathansteuer",
+        "Player2": "_IlNano_",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "bolov0",
-        "LosingPlayer": "Trid0n",
+        "Player1": "bolov0",
+        "Player2": "Trid0n",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "JKnecht",
-        "LosingPlayer": "Ebnus",
+        "Player1": "JKnecht",
+        "Player2": "Ebnus",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "KelMasterP",
-        "LosingPlayer": "MrSauron",
+        "Player1": "KelMasterP",
+        "Player2": "MrSauron",
         "Result": "2-0"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "nathansteuer",
-        "LosingPlayer": "bolov0",
+        "Player1": "nathansteuer",
+        "Player2": "bolov0",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "JKnecht",
-        "LosingPlayer": "KelMasterP",
+        "Player1": "JKnecht",
+        "Player2": "KelMasterP",
         "Result": "2-0"
       }
     ],
     "Finals": {
-      "WinningPlayer": "JKnecht",
-      "LosingPlayer": "nathansteuer",
+      "Player1": "JKnecht",
+      "Player2": "nathansteuer",
       "Result": "2-0"
     }
   },

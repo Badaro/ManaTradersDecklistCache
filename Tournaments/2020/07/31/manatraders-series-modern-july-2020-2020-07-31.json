@@ -31271,41 +31271,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "d00mwake",
-        "LosingPlayer": "JKnecht",
+        "Player1": "d00mwake",
+        "Player2": "JKnecht",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "Bedell",
-        "LosingPlayer": "MrRaeb",
+        "Player1": "Bedell",
+        "Player2": "MrRaeb",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "nbdf",
-        "LosingPlayer": "djbmppwns",
+        "Player1": "nbdf",
+        "Player2": "djbmppwns",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "Losilla",
-        "LosingPlayer": "GanYanCHN",
+        "Player1": "Losilla",
+        "Player2": "GanYanCHN",
         "Result": "2-1"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "Bedell",
-        "LosingPlayer": "d00mwake",
+        "Player1": "Bedell",
+        "Player2": "d00mwake",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "Losilla",
-        "LosingPlayer": "nbdf",
+        "Player1": "Losilla",
+        "Player2": "nbdf",
         "Result": "2-1"
       }
     ],
     "Finals": {
-      "WinningPlayer": "Losilla",
-      "LosingPlayer": "Bedell",
+      "Player1": "Losilla",
+      "Player2": "Bedell",
       "Result": "2-1"
     }
   },

@@ -23471,41 +23471,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "baby",
-        "LosingPlayer": "__BMJ__",
+        "Player1": "baby",
+        "Player2": "__BMJ__",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "VCF",
-        "LosingPlayer": "rorschach-",
+        "Player1": "VCF",
+        "Player2": "rorschach-",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "ModiSapiras",
-        "LosingPlayer": "Theo_Jung",
+        "Player1": "ModiSapiras",
+        "Player2": "Theo_Jung",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "diem4x",
-        "LosingPlayer": "zman2340",
+        "Player1": "diem4x",
+        "Player2": "zman2340",
         "Result": "2-1"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "VCF",
-        "LosingPlayer": "baby",
+        "Player1": "VCF",
+        "Player2": "baby",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "diem4x",
-        "LosingPlayer": "ModiSapiras",
+        "Player1": "diem4x",
+        "Player2": "ModiSapiras",
         "Result": "2-0"
       }
     ],
     "Finals": {
-      "WinningPlayer": "VCF",
-      "LosingPlayer": "diem4x",
+      "Player1": "VCF",
+      "Player2": "diem4x",
       "Result": "2-0"
     }
   },

@@ -30555,41 +30555,41 @@
   "Bracket": {
     "Quarterfinals": [
       {
-        "WinningPlayer": "Trid0n",
-        "LosingPlayer": "alnash",
+        "Player1": "Trid0n",
+        "Player2": "alnash",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "NewHJ",
-        "LosingPlayer": "zachattack23",
+        "Player1": "NewHJ",
+        "Player2": "zachattack23",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "adamwasmo",
-        "LosingPlayer": "Mogged",
+        "Player1": "adamwasmo",
+        "Player2": "Mogged",
         "Result": "2-0"
       },
       {
-        "WinningPlayer": "Middeterminist",
-        "LosingPlayer": "seasonofmists",
+        "Player1": "Middeterminist",
+        "Player2": "seasonofmists",
         "Result": "2-0"
       }
     ],
     "Semifinals": [
       {
-        "WinningPlayer": "NewHJ",
-        "LosingPlayer": "Trid0n",
+        "Player1": "NewHJ",
+        "Player2": "Trid0n",
         "Result": "2-1"
       },
       {
-        "WinningPlayer": "Middeterminist",
-        "LosingPlayer": "adamwasmo",
+        "Player1": "Middeterminist",
+        "Player2": "adamwasmo",
         "Result": "2-1"
       }
     ],
     "Finals": {
-      "WinningPlayer": "Middeterminist",
-      "LosingPlayer": "NewHJ",
+      "Player1": "Middeterminist",
+      "Player2": "NewHJ",
       "Result": "2-1"
     }
   },
