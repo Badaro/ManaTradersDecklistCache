@@ -1,6 +1,8 @@
 ﻿using CsvHelper;
 using HtmlAgilityPack;
 using MTGODecklistParser.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,17 +15,19 @@ namespace Updater
 {
     public static class TournamentDetailsLoader
     {
-        public static TournamentDetails GetTournamentDetails(string csvUrl, string standingsUrl, string bracketUrl)
+        public static TournamentDetails GetTournamentDetails(string csvUrl, string swissUrl, string standingsUrl, string bracketUrl)
         {
             var standings = ParseStandings(standingsUrl);
             var decks = ParseDecks(csvUrl, standings);
             var bracket = ParseBracket(bracketUrl);
+            var swiss = ParseSwiss(swissUrl);
 
             return new TournamentDetails()
             {
                 Decks = decks,
                 Standings = standings,
-                Bracket = bracket
+                Bracket = bracket,
+                Rounds = swiss
             };
         }
 
@@ -183,6 +187,45 @@ namespace Updater
                 Semifinals = brackets.Skip(4).Take(2).ToArray(),
                 Finals = brackets.Skip(6).First()
             };
+        }
+
+        private static Round[] ParseSwiss(string swissUrl)
+        {
+            List<Round> result = new List<Round>();
+
+            string jsonData = new WebClient().DownloadString(swissUrl);
+            dynamic json = JsonConvert.DeserializeObject(jsonData);
+
+            var jObj = (JObject)json;
+
+            foreach (JProperty round in jObj.Children())
+            {
+                int roundNumber = Int32.Parse(round.Name.Replace("Round ",""));
+
+                var matches = round.Children().ToArray().Children().ToArray();
+
+                List<RoundItem> items = new List<RoundItem>();
+                foreach(JToken match in matches)
+                {
+                    string p1 = match.Value<string>("p1");
+                    string p2 = match.Value<string>("p2");
+                    string res = match.Value<string>("res");
+                    items.Add(new RoundItem()
+                    {
+                        Player1 = p1,
+                        Player2 = p2,
+                        Result = res
+                    });
+                }
+
+                result.Add(new Round()
+                {
+                    RoundNumber = roundNumber,
+                    Matches = items.ToArray()
+                });
+            }
+
+            return result.ToArray();
         }
     }
 }

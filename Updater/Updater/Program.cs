@@ -34,13 +34,14 @@ namespace Updater
                     continue;
                 }
 
-                var details = TournamentDetailsLoader.GetTournamentDetails(tournament.Csv, $"{tournament.Uri.ToString()}swiss", $"{tournament.Uri.ToString()}finals");
+                var details = TournamentDetailsLoader.GetTournamentDetails(tournament.Csv, tournament.Swiss, $"{tournament.Uri.ToString()}swiss", $"{tournament.Uri.ToString()}finals");
                 string contents = JsonConvert.SerializeObject(new CacheItem()
                 {
                     Tournament = new Tournament() { Name = tournament.Name, Date = tournament.Date, Uri = tournament.Uri },
                     Decks = details.Decks,
                     Bracket = details.Bracket,
-                    Standings = details.Standings
+                    Standings = details.Standings,
+                    Rounds = details.Rounds
                 }, Formatting.Indented);
 
                 File.WriteAllText(targetFile, contents);
@@ -52,6 +53,7 @@ namespace Updater
     {
         public Tournament Tournament { get; set; }
         public Deck[] Decks { get; set; }
+        public Round[] Rounds { get; set; }
         public Bracket Bracket { get; set; }
         public Standing[] Standings { get; set; }
     }

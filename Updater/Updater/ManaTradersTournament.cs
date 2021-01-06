@@ -8,6 +8,7 @@ namespace Updater
     public class ManaTradersTournament : Tournament
     {
         public string Csv { get; set; }
+        public string Swiss { get; set; }
         public string File { get; set; }
     }
 }

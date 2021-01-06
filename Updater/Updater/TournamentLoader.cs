@@ -22,6 +22,7 @@ namespace Updater
                     Date = date.ToUniversalTime(),
                     Uri = json.Url,
                     Csv = json.Csv,
+                    Swiss = json.Swiss,
                     File = Path.GetFileName(tournamentFile)
                 });
             }
